@@ -154,8 +154,8 @@ audio {
     background: url('/img/Skärmbild\ 2023-03-15\ 104546.jpg');
     background-size: 100%;
     background-repeat: no-repeat;
+    background-color: white;
     background-position: center;
-    border: 2px solid transparent;
     color: white;
     text-transform: uppercase;
     font-weight: 700;
@@ -168,7 +168,7 @@ audio {
 
 #game-button:active {
     border-color: var(--color-dark);
-    background-color: var(--color-dark-transparent);
+    background-color: white ;
 }
 
 /* #msgbox är elementet som visar sidans toasts, popupmeddelanden
@@ -199,8 +199,8 @@ audio {
 }
 
 .achievement {
-    color: var(--color-light);
-    background-color: rebeccapurple;
+    color: white;
+    background-color: #200c9c;
 }
 
 /* dessa kort används för spelets uppgraderingar 
@@ -249,5 +249,5 @@ audio {
 }
 
 .active {
-    animation: flash 1s infinite;
+    color: white;
 }

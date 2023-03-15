@@ -185,33 +185,39 @@ upgrades = [
     {
         name: 'Saccosäck',
         cost: 350,
-        amount: 30,
+        amount: 25,
     },
     {
         name: 'Uppblåsbar Madrass',
-        cost: 500,
-        amount: 50,
+        cost: 700,
+        amount: 30,
     },
     {
         name: 'Switches',
-        cost: 1000,
-        amount: 70,
+        cost: 1300,
+        amount: 50,
     },
     {
         name: 'Extra Skärm',
-        cost: 1500,
-        amount: 100,
+        cost: 2000,
+        amount: 75,
     },
     {
         name: 'Projektor',
-        cost: 2000,
-        amount: 130,
+        cost: 3000,
+        amount: 80,
     },
     {
         name: 'Minikyl',
-        cost: 3000,
-        amount: 150,
+        cost: 5000,
+        amount: 100,
     },
+    {
+        name: 'Jörgen',
+        cost: 50000,
+        amount: 1337,
+    },
+    
 
 ];
 
@@ -251,7 +257,7 @@ function createCard(upgrade) {
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' benbitar';
+            cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Monster';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
             message('Grattis du har köpt en uppgradering!', 'success');
