@@ -37,12 +37,12 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'Museet är redo att öppna, grattis! ',
+        description: 'LANet är redo att öppna, grattis! ',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Nu börjar det likna något, fortsätt gräva!',
+        description: 'Nu börjar det likna något, fortsätt spela!',
         requiredUpgrades: 10,
         acquired: false,
     },
@@ -52,7 +52,7 @@ let achievements = [
         acquired: false,
     },
     {
-        description: 'Tac-2 god!',
+        description: 'LAN GUD!',
         requiredClicks: 10000,
         acquired: false,
     },
@@ -163,25 +163,56 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
     {
-        name: 'Sop',
+        name: 'Extern',
         cost: 10,
         amount: 1,
     },
     {
-        name: 'Kvalitetsspade',
+        name: 'Snabbmat',
         cost: 50,
         clicks: 2,
     },
     {
-        name: 'Skottkärra',
+        name: 'Ethernet Kabel',
         cost: 100,
         amount: 10,
     },
     {
-        name: 'Grävmaskin',
+        name: 'Kontorsstol',
+        cost: 200,
+        amount: 20,
+    },
+    {
+        name: 'Saccosäck',
+        cost: 350,
+        amount: 30,
+    },
+    {
+        name: 'Uppblåsbar Madrass',
+        cost: 500,
+        amount: 50,
+    },
+    {
+        name: 'Switches',
         cost: 1000,
+        amount: 70,
+    },
+    {
+        name: 'Extra Skärm',
+        cost: 1500,
         amount: 100,
     },
+    {
+        name: 'Projektor',
+        cost: 2000,
+        amount: 130,
+    },
+    {
+        name: 'Minikyl',
+        cost: 3000,
+        amount: 150,
+    },
+
 ];
 
 /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
@@ -213,7 +244,7 @@ function createCard(upgrade) {
     } else {
         header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
     }
-    cost.textContent = `Köp för ${upgrade.cost} benbitar.`;
+    cost.textContent = `Köp för ${upgrade.cost} Monster.`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {

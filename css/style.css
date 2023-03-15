@@ -2,8 +2,8 @@
 /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-    --color-lighter: hsl(80, 10%, 90%);
-    --color-light: hsl(80, 10%, 80%);
+    --color-lighter:hsla(322, 93%, 45%,0.8);
+    --color-light: #4b0082;
     --color-dark: hsl(360, 10%, 10%);
     --color-dark-transparent: hsla(360, 10%, 10%, 0.2);
 
@@ -24,17 +24,20 @@
 
 body {
     background-color: var(--color-light);
-    color: var(--color-dark);
+    color: white;
     font-family: sans-serif;
     font-size: var(--step-0);
 }
+
 
 h1 {
     font-size: var(--step-2);
     text-transform: uppercase;
     font-weight: 700;
     max-width: 20ch;
+    color: white;
 }
+
 
 /* göm audio, används för att preloada ljudet */
 audio {
@@ -55,9 +58,11 @@ audio {
     grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
     gap: var(--space-s-m);
 }
-.footer > * {
+
+.footer>* {
     font-size: var(--step--1);
 }
+
 .hero {
     display: grid;
     grid-template-areas: 'stack';
@@ -68,14 +73,12 @@ audio {
     place-self: end;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        0deg,
-        var(--color-dark),
-        var(--color-dark-transparent)
-    );
+    background: linear-gradient(0deg,
+            var(--color-dark),
+            var(--color-dark-transparent));
 }
 
-.hero > picture {
+.hero>picture {
     place-self: center;
     grid-area: stack;
     width: 100%;
@@ -85,11 +88,16 @@ audio {
 .hero img {
     width: 100%;
     height: 100%;
-    aspect-ratio: 16/9;
+    aspect-ratio: 16/2;
     object-fit: cover;
 }
 
+.lead {
+    color: white;
+}
+
 .hero-content {
+    color: white;
     grid-area: stack;
     place-self: end;
     padding: var(--space-m-l) 0;
@@ -100,7 +108,8 @@ audio {
     .lead {
         display: none;
     }
-    .hero > picture {
+
+    .hero>picture {
         max-height: 15vh;
     }
 }
@@ -121,7 +130,7 @@ audio {
 }
 
 /* game-currency är en lista med list items */
-.item > h3 {
+.item>h3 {
     display: flex;
     justify-content: space-between;
     gap: var(--space-xs-s);
@@ -131,6 +140,7 @@ audio {
     .game-hud {
         flex-direction: column-reverse;
     }
+
     .game-controls {
         place-self: center;
     }
@@ -141,11 +151,12 @@ audio {
     width: var(--space-4xl-5xl);
     height: var(--space-4xl-5xl);
     font-size: var(--step-2);
-    background: url('../img/brett-meliti-RgkYMfFopIA-unsplash-removebg-preview.png');
-    background-size: cover;
+    background: url('/img/Skärmbild\ 2023-03-15\ 104546.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
     background-position: center;
     border: 2px solid transparent;
-    color: var(--color-light);
+    color: white;
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
@@ -171,7 +182,7 @@ audio {
     min-width: 16rem;
 }
 
-#msgbox > p {
+#msgbox>p {
     margin-bottom: var(--space-xs-s);
     padding: var(--space-xs-s);
 }
@@ -197,6 +208,7 @@ audio {
  * skapa en mer lättläst struktur
  */
 .card {
+    background-color: #dd0890;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -212,6 +224,7 @@ audio {
 .card p:not(.title) {
     text-align: end;
 }
+
 /* klassen används på kortets titel, font-weight: 600 gör fonten fetare, en normal
  * font vikt är oftast 400
  */
@@ -225,9 +238,11 @@ audio {
     0% {
         color: var(--color-dark);
     }
+
     50% {
         color: var(--color-dark-transparent);
     }
+
     100% {
         color: var(--color-dark);
     }
