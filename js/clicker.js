@@ -174,50 +174,50 @@ upgrades = [
     },
     {
         name: 'Ethernet Kabel',
-        cost: 100,
+        cost: 200,
         amount: 10,
     },
     {
         name: 'Kontorsstol',
-        cost: 200,
+        cost: 500,
         amount: 20,
     },
     {
         name: 'Saccosäck',
-        cost: 350,
+        cost: 800,
         amount: 25,
     },
     {
         name: 'Uppblåsbar Madrass',
-        cost: 700,
+        cost: 1000,
         amount: 30,
     },
     {
         name: 'Switches',
-        cost: 1300,
+        cost: 1500,
         amount: 50,
     },
     {
         name: 'Extra Skärm',
-        cost: 2000,
+        cost: 2500,
         amount: 75,
     },
     {
         name: 'Projektor',
-        cost: 3000,
+        cost: 5000,
         amount: 80,
     },
     {
         name: 'Minikyl',
-        cost: 5000,
+        cost: 10000,
         amount: 100,
     },
     {
         name: 'Jörgen',
-        cost: 50000,
+        cost: 100000,
         amount: 1337,
     },
-    
+
 
 ];
 
