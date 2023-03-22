@@ -174,7 +174,7 @@ upgrades = [
         clicks: 2,
     },
     {
-        name: 'Ethernet Kabel',
+        name: 'Router',
         cost: 200,
         amount: 10,
     },

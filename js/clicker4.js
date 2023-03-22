@@ -172,7 +172,7 @@ upgrades = [
         amount: 20,
     },
     {
-        name: 'Saccosäck',
+        name: 'Ethernet kabel',
         cost: 1300 * mod,
         amount: 25,
     },
