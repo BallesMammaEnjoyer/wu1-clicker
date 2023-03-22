@@ -15,6 +15,7 @@ const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
+const clickpersecond = document.querySelector("#kps"); // clicks per second
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -28,6 +29,7 @@ let moneyPerClick = 1;
 let moneyPerSecond = 0;
 let acquiredUpgrades = 0;
 let last = 0;
+let kps = 1;
 let numberOfClicks = 0; // hur många gånger har spelare eg. klickat
 let active = false; // exempel för att visa att du kan lägga till klass för att indikera att spelare får valuta
 
@@ -37,18 +39,8 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'LANet är redo att öppna, grattis! ',
-        requiredUpgrades: 1,
-        acquired: false,
-    },
-    {
-        description: 'Nu börjar det likna något, fortsätt spela!',
-        requiredUpgrades: 10,
-        acquired: false,
-    },
-    {
-        description: 'Klickare, med licens att klicka!',
-        requiredClicks: 10,
+        description: 'Du har nu automatisk klick per sekund!',
+        requiredClicks: 1,
         acquired: false,
     },
     {
@@ -162,66 +154,67 @@ window.addEventListener('load', (event) => {
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
  */
+let mod = 1.5;
 upgrades = [
     {
         name: 'Extern',
-        cost: 10,
+        cost: 10*mod,
         amount: 1,
     },
     {
         name: 'Spraydeo',
-        cost: 50,
+        cost: 50*mod,
         clicks: 2,
     },
     {
         name: 'Ethernet Kabel',
-        cost: 200,
+        cost: 200*mod,
         amount: 10,
     },
     {
         name: 'Kontorsstol',
-        cost: 700,
+        cost: 700*mod,
         amount: 20,
     },
     {
         name: 'Saccosäck',
-        cost: 1000,
+        cost: 1000*mod,
         amount: 25,
     },
     {
         name: 'Uppblåsbar Madrass',
-        cost: 1500,
+        cost: 1500*mod,
         amount: 30,
     },
     {
         name: 'Ny mus',
-        cost: 2300,
+        cost: 2300*mod,
         amount: 50,
     },
     {
         name: 'Nytt tangentbord',
-        cost:  5000,
+        cost:  5000*mod,
         clicks: 15,
     },
     {
         name: 'Projektor',
-        cost: 7000,
+        cost: 7000*mod,
         amount: 80,
     },
     {
         name: 'Minikyl',
-        cost: 10000,
+        cost: 10000*mod,
         amount: 100,
     },
     {
         name: 'Spelkonsol',
-        cost: 20000,
+        cost: 30000,
         amount: 130,
     },
     {
         name: 'Bättre rum: Pythagoras',
-        cost: 100000,
-        URL: "../canvas.html"
+        cost: 100000*mod,
+        URL: "../KlassrumHTML/Pythagoras.html"
     },
 
 
@@ -253,8 +246,10 @@ function createCard(upgrade) {
     const cost = document.createElement('p');
     if (upgrade.amount) {
         header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
-    } else {
+    } else if(upgrade.clicks){
         header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
+    }else{
+        header.textContent=`${upgrade.name}`;
     }
     cost.textContent = `Köp för ${upgrade.cost} Monster.`;
 

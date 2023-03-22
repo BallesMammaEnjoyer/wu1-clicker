@@ -23,6 +23,7 @@ const audioAchievement = document.querySelector('#swoosh');
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
+let mod = 3.5;
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
@@ -30,26 +31,12 @@ let acquiredUpgrades = 0;
 let last = 0;
 let numberOfClicks = 0; // hur många gånger har spelare eg. klickat
 let active = false; // exempel för att visa att du kan lägga till klass för att indikera att spelare får valuta
+
 // likt upgrades skapas här en array med objekt som innehåller olika former
 // av achievements.
 // requiredSOMETHING är vad som krävs för att få dem
 
 let achievements = [
-    {
-        description: 'LANet är redo att öppna, grattis! ',
-        requiredUpgrades: 1,
-        acquired: false,
-    },
-    {
-        description: 'Nu börjar det likna något, fortsätt spela!',
-        requiredUpgrades: 10,
-        acquired: false,
-    },
-    {
-        description: 'Klickare, med licens att klicka!',
-        requiredClicks: 10,
-        acquired: false,
-    },
     {
         description: 'LAN GUD!',
         requiredClicks: 10000,
@@ -96,6 +83,7 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += moneyPerSecond;
+        money += 4 * moneyPerClick;
         last = timestamp;
     }
 
@@ -153,8 +141,6 @@ window.addEventListener('load', (event) => {
     window.requestAnimationFrame(step);
 });
 
-
-
 /* En array med upgrades. Varje upgrade är ett objekt med egenskaperna name, cost
  * och amount. Önskar du ytterligare text eller en bild så går det utmärkt att
  * lägga till detta.
@@ -162,61 +148,73 @@ window.addEventListener('load', (event) => {
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
  */
+
+
 upgrades = [
     {
-        name: 'Extern',
-        cost: 10,
+        name: 'Max kupong',
+        cost: 25 * mod,
         amount: 1,
     },
     {
-        name: 'Snabbmat',
-        cost: 50,
+        name: 'Spraydeo',
+        cost: 50 * mod,
         clicks: 2,
     },
     {
-        name: 'Ethernet Kabel',
-        cost: 200,
+        name: 'Grenuttag',
+        cost: 200 * mod,
         amount: 10,
     },
     {
-        name: 'Kontorsstol',
-        cost: 700,
+        name: 'Gamingstol',
+        cost: 800 * mod,
         amount: 20,
     },
     {
         name: 'Saccosäck',
-        cost: 1000,
+        cost: 1300 * mod,
         amount: 25,
     },
     {
-        name: 'Uppblåsbar Madrass',
-        cost: 1500,
+        name: 'Sovsäck',
+        cost: 2000 * mod,
         amount: 30,
     },
     {
-        name: 'Switches',
-        cost: 2300,
+        name: 'Ny mus',
+        cost: 3000 * mod,
         amount: 50,
     },
     {
-        name: 'Extra Skärm',
-        cost:  5000,
+        name: 'Nytt tangentbord',
+        cost: 5000 * mod,
         clicks: 15,
     },
     {
         name: 'Projektor',
-        cost: 7000,
+        cost: 7000 * mod,
         amount: 80,
     },
     {
-        name: 'Minikyl',
-        cost: 10000,
+        name: 'Bättre dator',
+        cost: 10000 * mod,
         amount: 100,
     },
     {
-        name: 'Bättre rum: Pheme',
-        cost: 100000,
-        URL:"../klassrumHTML/Pheme.html"
+        name: 'Spelkonsol',
+        cost: 25000 * mod,
+        amount: 130,
+    },
+    {
+        name: 'Willys Öppnar',
+        cost: 50000 * mod,
+        clicks: 100
+    },
+    {
+        name: 'Bättre rum: Arkimedes',
+        cost: 550000,
+        URL: "../KlassrumHTML/Arkimedes.html"
     },
 
 
@@ -248,16 +246,16 @@ function createCard(upgrade) {
     const cost = document.createElement('p');
     if (upgrade.amount) {
         header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
-    } else if(upgrade.clicks){
+    } else if (upgrade.clicks) {
         header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
-    }else{
-        header.textContent=`${upgrade.name}`;
+    } else {
+        header.textContent = `${upgrade.name}`;
     }
     cost.textContent = `Köp för ${upgrade.cost} Monster.`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
-            if(upgrade.URL){
+            if (upgrade.URL) {
                 window.location.assign(upgrade.URL)
             }
             acquiredUpgrades++;
@@ -277,7 +275,7 @@ function createCard(upgrade) {
     return card;
 }
 
-/* Message visar hur vi kan skapa ett html erlement och ta bort det.
+/* Message visar hur vi kan skapa ett html element och ta bort det.
  * appendChild används för att lägga till och removeChild för att ta bort.
  * Detta görs med en timer.
  * Läs mer:
