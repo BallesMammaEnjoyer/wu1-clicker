@@ -97,6 +97,7 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += moneyPerSecond;
+        money += moneyPerClick;
         last = timestamp;
     }
 
@@ -168,7 +169,7 @@ upgrades = [
         amount: 1,
     },
     {
-        name: 'Snabbmat',
+        name: 'Spraydeo',
         cost: 50,
         clicks: 2,
     },
@@ -193,12 +194,12 @@ upgrades = [
         amount: 30,
     },
     {
-        name: 'Switches',
+        name: 'Ny mus',
         cost: 2300,
         amount: 50,
     },
     {
-        name: 'Extra Skärm',
+        name: 'Nytt tangentbord',
         cost:  5000,
         clicks: 15,
     },
@@ -213,9 +214,14 @@ upgrades = [
         amount: 100,
     },
     {
-        name: 'Större rum',
+        name: 'Spelkonsol',
+        cost: 20000,
+        amount: 130,
+    },
+    {
+        name: 'Bättre rum: Pythagoras',
         cost: 100000,
-        amount: 1337,
+        URL: "../canvas.html"
     },
 
 
@@ -254,6 +260,9 @@ function createCard(upgrade) {
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
+            if(upgrade.URL){
+                window.location.assign(upgrade.URL)
+            }
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
@@ -289,3 +298,4 @@ function message(text, type) {
     setTimeout(() => {
         p.parentNode.removeChild(p);
     }, 2000);
+}

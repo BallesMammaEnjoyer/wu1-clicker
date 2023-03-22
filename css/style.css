@@ -22,6 +22,10 @@
     --space-4xl-5xl: clamp(7.88rem, calc(7.14rem + 3.7vw), 10rem);
 }
 
+.textcenter {
+  text-align: center;
+}
+
 body {
     background-color: var(--color-light);
     color: white;
