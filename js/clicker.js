@@ -179,32 +179,32 @@ upgrades = [
     },
     {
         name: 'Kontorsstol',
-        cost: 500,
+        cost: 700,
         amount: 20,
     },
     {
         name: 'Saccosäck',
-        cost: 800,
+        cost: 1000,
         amount: 25,
     },
     {
         name: 'Uppblåsbar Madrass',
-        cost: 1000,
+        cost: 1500,
         amount: 30,
     },
     {
         name: 'Switches',
-        cost: 1500,
+        cost: 2300,
         amount: 50,
     },
     {
         name: 'Extra Skärm',
-        cost: 2500,
-        amount: 75,
+        cost:  5000,
+        clicks: 15,
     },
     {
         name: 'Projektor',
-        cost: 5000,
+        cost: 7000,
         amount: 80,
     },
     {
@@ -213,7 +213,7 @@ upgrades = [
         amount: 100,
     },
     {
-        name: 'Jörgen',
+        name: 'Större rum',
         cost: 100000,
         amount: 1337,
     },
@@ -289,4 +289,3 @@ function message(text, type) {
     setTimeout(() => {
         p.parentNode.removeChild(p);
     }, 2000);
-}
