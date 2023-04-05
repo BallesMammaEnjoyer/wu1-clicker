@@ -153,6 +153,9 @@ window.addEventListener('load', (event) => {
     window.requestAnimationFrame(step);
 });
 
+if(money => 80000){
+
+}
 
 
 /* En array med upgrades. Varje upgrade är ett objekt med egenskaperna name, cost

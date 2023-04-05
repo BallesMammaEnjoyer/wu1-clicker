@@ -157,7 +157,7 @@ upgrades = [
         amount: 1,
     },
     {
-        name: 'Spraydeo',
+        name: 'Rulldeo',
         cost: 50 * mod,
         clicks: 2,
     },
