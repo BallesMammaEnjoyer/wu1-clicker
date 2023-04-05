@@ -172,7 +172,7 @@ upgrades = [
         amount: 20,
     },
     {
-        name: 'Saccosäck',
+        name: 'Ethernet kabel',
         cost: 1300 * mod,
         amount: 25,
     },
@@ -207,7 +207,7 @@ upgrades = [
         amount: 130,
     },
     {
-        name: 'Willys Öppnar',
+        name: 'Godishuset Öppnar',
         cost: 50000 * mod,
         clicks: 100
     },
