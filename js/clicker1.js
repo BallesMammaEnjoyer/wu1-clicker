@@ -219,7 +219,7 @@ upgrades = [
     {
         name: 'Bättre rum: Pheme',
         cost: 100000,
-        URL:"../klassrumHTML/Pheme.html"
+        URL:"https://github.com/BallesMammaeEnjoyer/wu1-clicker/KlassrumHTML/Pheme.html"
     },
 
 
