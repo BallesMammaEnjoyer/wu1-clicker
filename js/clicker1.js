@@ -102,8 +102,7 @@ function step(timestamp) {
     if (moneyPerSecond > 0 && !active) {
         mpsTracker.classList.add('active');
         active = true;
-    }
-
+  
     // achievements, utgår från arrayen achievements med objekt
     // koden nedan muterar (ändrar) arrayen och tar bort achievements
     // som spelaren klarat
@@ -219,7 +218,7 @@ upgrades = [
     {
         name: 'Bättre rum: Pheme',
         cost: 100000,
-        URL:"/KlassrumHTML/Pheme.html"
+        URL:"KlassrumHTML/Pheme.html"
     },
 
 
