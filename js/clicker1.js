@@ -218,7 +218,7 @@ upgrades = [
     {
         name: 'Bättre rum: Pheme',
         cost: 100000,
-        URL:"KlassrumHTML/Pheme.html"
+        URL:"../KlassrumHTML/Pheme.html"
     },
 
 
