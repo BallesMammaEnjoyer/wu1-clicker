@@ -2,7 +2,7 @@
 /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-    --color-lighter:hsla(322, 93%, 45%,0.8);
+    --color-lighter: hsla(322, 93%, 45%, 0.8);
     --color-light: #4b0082;
     --color-dark: hsl(360, 10%, 10%);
     --color-dark-transparent: hsla(360, 10%, 10%, 0.2);
@@ -23,7 +23,7 @@
 }
 
 .textcenter {
-  text-align: center;
+    text-align: center;
 }
 
 body {
@@ -41,6 +41,7 @@ h1 {
     max-width: 20ch;
     color: white;
 }
+
 
 
 /* göm audio, används för att preloada ljudet */
@@ -172,7 +173,7 @@ audio {
 
 #game-button:active {
     border-color: var(--color-dark);
-    background-color: white ;
+    background-color: white;
 }
 
 /* #msgbox är elementet som visar sidans toasts, popupmeddelanden
