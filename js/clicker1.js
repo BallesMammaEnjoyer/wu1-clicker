@@ -297,4 +297,4 @@ function message(text, type) {
     setTimeout(() => {
         p.parentNode.removeChild(p);
     }, 2000);
-}
+};
