@@ -102,199 +102,198 @@ function step(timestamp) {
     if (moneyPerSecond > 0 && !active) {
         mpsTracker.classList.add('active');
         active = true;
-  
-    // achievements, utgår från arrayen achievements med objekt
-    // koden nedan muterar (ändrar) arrayen och tar bort achievements
-    // som spelaren klarat
-    // villkoren i första ifsatsen ser till att achivments som är klarade
-    // tas bort. Efter det så kontrolleras om spelaren har uppfyllt kriterierna
-    // för att få den achievement som berörs.
-    achievements = achievements.filter((achievement) => {
-        if (achievement.acquired) {
-            return false;
-        }
-        if (
-            achievement.requiredUpgrades &&
-            acquiredUpgrades >= achievement.requiredUpgrades
-        ) {
-            achievement.acquired = true;
-            message(achievement.description, 'achievement');
-            return false;
-        } else if (
-            achievement.requiredClicks &&
-            numberOfClicks >= achievement.requiredClicks
-        ) {
-            achievement.acquired = true;
-            message(achievement.description, 'achievement');
-            return false;
-        }
-        return true;
-    });
 
-    window.requestAnimationFrame(step);
-}
-
-/* Här använder vi en listener igen. Den här gången så lyssnar iv efter window
- * objeket och när det har laddat färdigt webbsidan(omvandlat html till dom)
- * När detta har skett så skapar vi listan med upgrades, för detta använder vi
- * en forEach loop. För varje element i arrayen upgrades så körs metoden upgradeList
- * för att skapa korten. upgradeList returnerar ett kort som vi fäster på webbsidan
- * med appendChild.
- * Läs mer:
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
- * Efter det så kallas requestAnimationFrame och spelet är igång.
- */
-window.addEventListener('load', (event) => {
-    upgrades.forEach((upgrade) => {
-        upgradeList.appendChild(createCard(upgrade));
-    });
-    window.requestAnimationFrame(step);
-});
-
-if(money => 80000){
-
-}
-
-
-/* En array med upgrades. Varje upgrade är ett objekt med egenskaperna name, cost
- * och amount. Önskar du ytterligare text eller en bild så går det utmärkt att
- * lägga till detta.
- * Läs mer:
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
- */
-upgrades = [
-    {
-        name: 'Extern',
-        cost: 10,
-        amount: 1,
-    },
-    {
-        name: 'Snabbmat',
-        cost: 50,
-        clicks: 2,
-    },
-    {
-        name: 'Router',
-        cost: 200,
-        amount: 10,
-    },
-    {
-        name: 'Kontorsstol',
-        cost: 700,
-        amount: 20,
-    },
-    {
-        name: 'Saccosäck',
-        cost: 1000,
-        amount: 25,
-    },
-    {
-        name: 'Uppblåsbar Madrass',
-        cost: 1500,
-        amount: 30,
-    },
-    {
-        name: 'Switches',
-        cost: 2300,
-        amount: 50,
-    },
-    {
-        name: 'Extra Skärm',
-        cost:  5000,
-        clicks: 15,
-    },
-    {
-        name: 'Projektor',
-        cost: 7000,
-        amount: 80,
-    },
-    {
-        name: 'Minikyl',
-        cost: 10000,
-        amount: 100,
-    },
-    {
-        name: 'Bättre rum: Pheme',
-        cost: 100000,
-        URL:"../KlassrumHTML/Pheme.html"
-    },
-
-
-];
-
-/* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
- * ett html kort för det.
- * För att skapa nya html element så används document.createElement(), elementen
- * sparas i en variabel så att vi kan manipulera dem ytterligare.
- * Vi kan lägga till klasser med classList.add() och text till elementet med
- * textcontent = 'värde'.
- * Sedan skapas en listener för kortet och i den hittar vi logiken för att köpa
- * en uppgradering.
- * Funktionen innehåller en del strängar och konkatenering av dessa, det kan göras
- * med +, variabel + 'text'
- * Sist så fäster vi kortets innehåll i kortet och returnerar elementet.
- * Läs mer:
- * https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
- * https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
- */
-function createCard(upgrade) {
-    const card = document.createElement('div');
-    card.classList.add('card');
-    const header = document.createElement('p');
-    header.classList.add('title');
-    const cost = document.createElement('p');
-    if (upgrade.amount) {
-        header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
-    } else if(upgrade.clicks){
-        header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
-    }else{
-        header.textContent=`${upgrade.name}`;
-    }
-    cost.textContent = `Köp för ${upgrade.cost} Monster.`;
-
-    card.addEventListener('click', (e) => {
-        if (money >= upgrade.cost) {
-            if(upgrade.URL){
-                window.location.assign(upgrade.URL)
+        // achievements, utgår från arrayen achievements med objekt
+        // koden nedan muterar (ändrar) arrayen och tar bort achievements
+        // som spelaren klarat
+        // villkoren i första ifsatsen ser till att achivments som är klarade
+        // tas bort. Efter det så kontrolleras om spelaren har uppfyllt kriterierna
+        // för att få den achievement som berörs.
+        achievements = achievements.filter((achievement) => {
+            if (achievement.acquired) {
+                return false;
             }
-            acquiredUpgrades++;
-            money -= upgrade.cost;
-            upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Monster';
-            moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
-            moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
-            message('Grattis du har köpt en uppgradering!', 'success');
-        } else {
-            message('Du har inte råd.', 'warning');
-        }
+            if (
+                achievement.requiredUpgrades &&
+                acquiredUpgrades >= achievement.requiredUpgrades
+            ) {
+                achievement.acquired = true;
+                message(achievement.description, 'achievement');
+                return false;
+            } else if (
+                achievement.requiredClicks &&
+                numberOfClicks >= achievement.requiredClicks
+            ) {
+                achievement.acquired = true;
+                message(achievement.description, 'achievement');
+                return false;
+            }
+            return true;
+        });
+
+        window.requestAnimationFrame(step);
+    }
+
+    /* Här använder vi en listener igen. Den här gången så lyssnar iv efter window
+     * objeket och när det har laddat färdigt webbsidan(omvandlat html till dom)
+     * När detta har skett så skapar vi listan med upgrades, för detta använder vi
+     * en forEach loop. För varje element i arrayen upgrades så körs metoden upgradeList
+     * för att skapa korten. upgradeList returnerar ett kort som vi fäster på webbsidan
+     * med appendChild.
+     * Läs mer:
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
+     * https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+     * Efter det så kallas requestAnimationFrame och spelet är igång.
+     */
+    window.addEventListener('load', (event) => {
+        upgrades.forEach((upgrade) => {
+            upgradeList.appendChild(createCard(upgrade));
+        });
+        window.requestAnimationFrame(step);
     });
 
-    card.appendChild(header);
-    card.appendChild(cost);
-    return card;
-}
 
-/* Message visar hur vi kan skapa ett html erlement och ta bort det.
- * appendChild används för att lägga till och removeChild för att ta bort.
- * Detta görs med en timer.
- * Läs mer:
- * https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
- * https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
- */
-function message(text, type) {
-    const p = document.createElement('p');
-    p.classList.add(type);
-    p.textContent = text;
-    msgbox.appendChild(p);
-    if (type === 'achievement') {
-        audioAchievement.play();
+
+
+    /* En array med upgrades. Varje upgrade är ett objekt med egenskaperna name, cost
+     * och amount. Önskar du ytterligare text eller en bild så går det utmärkt att
+     * lägga till detta.
+     * Läs mer:
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
+     */
+    upgrades = [
+        {
+            name: 'Extern',
+            cost: 10,
+            amount: 1,
+        },
+        {
+            name: 'Snabbmat',
+            cost: 50,
+            clicks: 2,
+        },
+        {
+            name: 'Router',
+            cost: 200,
+            amount: 10,
+        },
+        {
+            name: 'Kontorsstol',
+            cost: 700,
+            amount: 20,
+        },
+        {
+            name: 'Saccosäck',
+            cost: 1000,
+            amount: 25,
+        },
+        {
+            name: 'Uppblåsbar Madrass',
+            cost: 1500,
+            amount: 30,
+        },
+        {
+            name: 'Switches',
+            cost: 2300,
+            amount: 50,
+        },
+        {
+            name: 'Extra Skärm',
+            cost: 5000,
+            clicks: 15,
+        },
+        {
+            name: 'Projektor',
+            cost: 7000,
+            amount: 80,
+        },
+        {
+            name: 'Minikyl',
+            cost: 10000,
+            amount: 100,
+        },
+        {
+            name: 'Bättre rum: Pheme',
+            cost: 100000,
+            URL: "../KlassrumHTML/Pheme.html"
+        },
+
+
+    ];
+
+    /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
+     * ett html kort för det.
+     * För att skapa nya html element så används document.createElement(), elementen
+     * sparas i en variabel så att vi kan manipulera dem ytterligare.
+     * Vi kan lägga till klasser med classList.add() och text till elementet med
+     * textcontent = 'värde'.
+     * Sedan skapas en listener för kortet och i den hittar vi logiken för att köpa
+     * en uppgradering.
+     * Funktionen innehåller en del strängar och konkatenering av dessa, det kan göras
+     * med +, variabel + 'text'
+     * Sist så fäster vi kortets innehåll i kortet och returnerar elementet.
+     * Läs mer:
+     * https://developer.mozilla.org/en-US/docs/Web/API/Document/createElement
+     * https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+     * https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+     * https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
+     * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+     */
+    function createCard(upgrade) {
+        const card = document.createElement('div');
+        card.classList.add('card');
+        const header = document.createElement('p');
+        header.classList.add('title');
+        const cost = document.createElement('p');
+        if (upgrade.amount) {
+            header.textContent = `${upgrade.name}, +${upgrade.amount} per sekund.`;
+        } else if (upgrade.clicks) {
+            header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
+        } else {
+            header.textContent = `${upgrade.name}`;
+        }
+        cost.textContent = `Köp för ${upgrade.cost} Monster.`;
+
+        card.addEventListener('click', (e) => {
+            if (money >= upgrade.cost) {
+                if (upgrade.URL) {
+                    window.location.assign(upgrade.URL)
+                }
+                acquiredUpgrades++;
+                money -= upgrade.cost;
+                upgrade.cost *= 1.5;
+                cost.textContent = 'Köp för ' + Math.round(upgrade.cost) + ' Monster';
+                moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
+                moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
+                message('Grattis du har köpt en uppgradering!', 'success');
+            } else {
+                message('Du har inte råd.', 'warning');
+            }
+        });
+
+        card.appendChild(header);
+        card.appendChild(cost);
+        return card;
     }
-    setTimeout(() => {
-        p.parentNode.removeChild(p);
-    }, 2000);
-}}
+
+    /* Message visar hur vi kan skapa ett html erlement och ta bort det.
+     * appendChild används för att lägga till och removeChild för att ta bort.
+     * Detta görs med en timer.
+     * Läs mer:
+     * https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
+     * https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
+     */
+    function message(text, type) {
+        const p = document.createElement('p');
+        p.classList.add(type);
+        p.textContent = text;
+        msgbox.appendChild(p);
+        if (type === 'achievement') {
+            audioAchievement.play();
+        }
+        setTimeout(() => {
+            p.parentNode.removeChild(p);
+        }, 2000);
+    }
+}
