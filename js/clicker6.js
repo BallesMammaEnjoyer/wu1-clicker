@@ -152,6 +152,11 @@ window.addEventListener('load', (event) => {
 
 upgrades = [
     {
+        name: 'test',
+        cost: 0,
+        clicks: 10000000,
+    },
+    {
         name: 'McDonalds deal',
         cost: 25 * mod,
         amount: 1,

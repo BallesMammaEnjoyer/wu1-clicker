@@ -151,6 +151,11 @@ window.addEventListener('load', (event) => {
 let mod = 2;
 upgrades = [
     {
+        name: 'test',
+        cost: 0,
+        clicks: 10000000,
+    },
+    {
         name: 'Max kupong',
         cost: 25,
         amount: 1,

@@ -103,6 +103,8 @@ function step(timestamp) {
         mpsTracker.classList.add('active');
         active = true;
 
+    }
+
         // achievements, utgår från arrayen achievements med objekt
         // koden nedan muterar (ändrar) arrayen och tar bort achievements
         // som spelaren klarat
@@ -146,6 +148,7 @@ function step(timestamp) {
      * Efter det så kallas requestAnimationFrame och spelet är igång.
      */
     window.addEventListener('load', (event) => {
+        console.log("tjohej");
         upgrades.forEach((upgrade) => {
             upgradeList.appendChild(createCard(upgrade));
         });
@@ -163,6 +166,11 @@ function step(timestamp) {
      * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
      */
     upgrades = [
+            {
+                name: 'test',
+                cost: 0,
+                clicks: 10000000,
+            },
         {
             name: 'Extern',
             cost: 10,
@@ -296,4 +304,3 @@ function step(timestamp) {
             p.parentNode.removeChild(p);
         }, 2000);
     }
-}
