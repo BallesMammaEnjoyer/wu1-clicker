@@ -153,7 +153,7 @@ window.addEventListener('load', (event) => {
 upgrades = [
 
     {
-        name: 'Max kupong',
+        name: 'McDonalds deal',
         cost: 25 * mod,
         amount: 1,
     },
