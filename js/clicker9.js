@@ -23,7 +23,7 @@ const audioAchievement = document.querySelector('#swoosh');
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
-let mod = 3;
+let mod = 4;
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
@@ -83,7 +83,7 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += moneyPerSecond;
-        money += 3 * moneyPerClick;
+        money += 8 * moneyPerClick;
         last = timestamp;
     }
 
@@ -151,8 +151,9 @@ window.addEventListener('load', (event) => {
 
 
 upgrades = [
+
     {
-        name: 'Max kupong',
+        name: 'McDonalds deal',
         cost: 25 * mod,
         amount: 1,
     },
@@ -197,24 +198,24 @@ upgrades = [
         amount: 80,
     },
     {
-        name: 'Minikyl',
+        name: 'Bättre dator',
         cost: 10000 * mod,
         amount: 100,
     },
     {
-        name: 'Spelkonsol',
+        name: 'VR headset',
         cost: 25000 * mod,
         amount: 130,
     },
     {
-        name: 'Coop Öppnar',
+        name: 'Willys Öppnar',
         cost: 50000 * mod,
         clicks: 100
     },
     {
-        name: 'Bättre rum: Arkimedes',
-        cost: 40000,
-        URL: "../KlassrumHTML/Arkimedes.html"
+        name: 'Bättre rum: Streamer studion: Nike',
+        cost: 550000,
+        URL: "../KlassrumHTML/Nike.html"
     },
 
 

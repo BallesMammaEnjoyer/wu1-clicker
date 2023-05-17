@@ -166,11 +166,7 @@ function step(timestamp) {
      * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer
      */
     upgrades = [
-            {
-                name: 'test',
-                cost: 0,
-                clicks: 10000000,
-            },
+    
         {
             name: 'Extern',
             cost: 10,

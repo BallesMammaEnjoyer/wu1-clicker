@@ -151,11 +151,7 @@ window.addEventListener('load', (event) => {
 
 
 upgrades = [
-    {
-        name: 'test',
-        cost: 0,
-        clicks: 10000000,
-    },
+
     {
         name: 'Max kupong',
         cost: 25 * mod,
@@ -217,9 +213,9 @@ upgrades = [
         clicks: 100
     },
     {
-        name: 'Bättre rum: Arkimedes',
+        name: 'Bättre rum: Sapfo',
         cost: 550000,
-        URL: "../KlassrumHTML/Arkimedes.html"
+        URL: "../KlassrumHTML/Sapfo.html"
     },
 
 

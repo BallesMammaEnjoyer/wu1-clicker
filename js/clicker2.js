@@ -164,11 +164,7 @@ window.addEventListener('load', (event) => {
  */
 let mod = 1.5;
 upgrades = [
-    {
-        name: 'test',
-        cost: 0,
-        clicks: 10000000,
-    },
+
     {
         name: 'Extern',
         cost: 10*mod,

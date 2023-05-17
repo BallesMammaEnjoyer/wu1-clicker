@@ -28,6 +28,7 @@ let moneyPerClick = 1;
 let moneyPerSecond = 0;
 let acquiredUpgrades = 0;
 let last = 0;
+let kps = 1;
 let numberOfClicks = 0; // hur många gånger har spelare eg. klickat
 let active = false; // exempel för att visa att du kan lägga till klass för att indikera att spelare får valuta
 
@@ -150,11 +151,7 @@ window.addEventListener('load', (event) => {
  */
 let mod = 2;
 upgrades = [
-    {
-        name: 'test',
-        cost: 0,
-        clicks: 10000000,
-    },
+
     {
         name: 'Max kupong',
         cost: 25,
