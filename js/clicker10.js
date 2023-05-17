@@ -23,7 +23,7 @@ const audioAchievement = document.querySelector('#swoosh');
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
-let mod = 4;
+let mod = 6;
 let money = 0;
 let moneyPerClick = 1;
 let moneyPerSecond = 0;
@@ -153,37 +153,37 @@ window.addEventListener('load', (event) => {
 upgrades = [
 
     {
-        name: 'McDonalds deal',
+        name: 'KFC kupong',
         cost: 25 * mod,
         amount: 1,
     },
     {
-        name: 'Rulldeo',
+        name: 'Dusch',
         cost: 50 * mod,
         clicks: 2,
     },
     {
-        name: 'Grenuttag',
+        name: 'Portabel Fusion reaktor',
         cost: 200 * mod,
         amount: 10,
     },
     {
-        name: 'Gamingstol',
+        name: 'Stream ads',
         cost: 800 * mod,
         amount: 20,
     },
     {
-        name: 'Ethernet kabel',
+        name: '5G torn',
         cost: 1300 * mod,
         amount: 25,
     },
     {
-        name: 'Sovsäck',
+        name: 'Streamer stol',
         cost: 2000 * mod,
         amount: 30,
     },
     {
-        name: 'Ny mus',
+        name: 'Bättre mic',
         cost: 3000 * mod,
         amount: 50,
     },
@@ -193,7 +193,7 @@ upgrades = [
         clicks: 15,
     },
     {
-        name: 'Projektor',
+        name: 'Bättre kamera',
         cost: 7000 * mod,
         amount: 80,
     },
@@ -203,12 +203,12 @@ upgrades = [
         amount: 100,
     },
     {
-        name: 'VR headset',
+        name: 'Fullt virtuellt universum',
         cost: 25000 * mod,
         amount: 130,
     },
     {
-        name: 'Willys Öppnar',
+        name: 'Himlen Öppnar',
         cost: 50000 * mod,
         clicks: 100
     },
